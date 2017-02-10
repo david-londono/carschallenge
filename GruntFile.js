@@ -2,9 +2,9 @@ module.exports = function (grunt){
     grunt.initConfig({
        jasmine: {
            pivotal:{
-               src: 'src/*.js',
+               src: 'js/*.js',
                options: {
-                   specs: 'spec/*.js'        
+                   specs: 'spec/*.js'
                }
            }
         },
@@ -17,10 +17,10 @@ module.exports = function (grunt){
                     'css/main.css':'sass/main.scss'
                 }
             }
-            
+
         }
     });
-    
+
     grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.registerTask('default','jasmine');

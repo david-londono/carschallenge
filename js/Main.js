@@ -1,42 +1,44 @@
-var jsonResponse;
+
+
+var petitioner = new Petitioner(),
+    respuesta;
+
+    petitioner.ajax('GET','../data/options.json');
+//petitioner.ajax();
+
+//respuesta = petitioner.xhr;
+
+    console.log(petitioner);
+    console.log(petitioner.getResponse());
+ //console.log(respuesta.response);
 
 function getMenuItems(){
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', '../data/options.json');
-  xhr.onload = function() {
-      if (xhr.status === 200) {
-        jsonResponse = xhr.responseText;
-          response();
-      }
-      else {
-          alert('Request failed.  Returned status of ' + xhr.status);
-      }
-  };
-  xhr.send();
+
 }
 
-function response(){
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', '../templates/menu.hbs');
-  xhr.onload = function() {
-      if (xhr.status === 200) {
-        template= xhr.responseText;
-          //alert('template\'s name is ' + template);
-          jsonResponse = JSON.parse(jsonResponse);
-          var template = Handlebars.compile(template);
-          var compiledHTML = template(jsonResponse);
-          var dataContainer = document.getElementById('list-menu');
-          dataContainer.innerHTML = compiledHTML;
-      }
-      else {
-          alert('Request failed.  Returned status of ' + xhr.status);
-      }
-  };
-  xhr.send();
+function DrawList(){
+  // var xhr = new XMLHttpRequest();
+  // xhr.open('GET', '../templates/menu.hbs');
+  // xhr.onload = function() {
+  //     if (xhr.status === 200) {
+  //       template= xhr.responseText;
+  //         //alert('template\'s name is ' + template);
+  //         jsonResponse = JSON.parse(jsonResponse);
+  //         var template = Handlebars.compile(template);
+  //         var compiledHTML = template(jsonResponse);
+  //         var dataContainer = document.getElementById('list-menu');
+  //         dataContainer.innerHTML = compiledHTML;
+  //     }
+  //     else {
+  //         alert('Request failed.  Returned status of ' + xhr.status);
+  //     }
+  // };
+  // xhr.send();
 }
 
 getMenuItems();
 
+/*
 //obserber
 function ObserverList(){
   this.observerList = [];
@@ -150,3 +152,4 @@ function addNewObserver(){
   // Append the item to the container
   container.appendChild( check );
 }
+*/
